@@ -1,15 +1,16 @@
 Summary:	Fast RDF quad store
 Name:		4store
-Version:	0.9.2
+Version:	0.9.5
 Release:	1
 License:	LGPL v2+
 Group:		Applications/Databases
 Source0:	http://4store.org/download/%{name}-v%{version}.tar.gz
-# Source0-md5:	40cff8523f2bcff56d2ee6f826fec43d
+# Source0-md5:	449d1fdac43af2cdf3029e0f7392d31f
 URL:		http://4store.org/
 Patch0:		%{name}-prefix.patch
 Patch1:		%{name}-termcap.patch
 Patch2:		%{name}-destdir.patch
+Patch3:		%{name}-bashisms.patch
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
@@ -57,6 +58,7 @@ Statyczne biblioteki 4store.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__make}

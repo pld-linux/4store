@@ -13,9 +13,13 @@ Patch2:		%{name}-destdir.patch
 Patch3:		%{name}-bashisms.patch
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
+BuildRequires:	glib2-devel
+BuildRequires:	libraptor-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rasqal-devel
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,7 +65,8 @@ Statyczne biblioteki 4store.
 %patch3 -p1
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
